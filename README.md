@@ -9,5 +9,5 @@ go get github.com/ma6174/slowrw
 
 ### Example:
 
-- [slow reader](example/simple_reader.go)
-- [slow writer](example/simple_writer.go)
+- [slow reader](example/simple_reader/simple_reader.go)
+- [slow writer](example/simple_writer/simple_writer.go)
