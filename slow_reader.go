@@ -24,6 +24,21 @@ func (s *SlowReader) Read(p []byte) (n int, err error) {
 	return
 }
 
+type SlowReadSeeker struct {
+	*SlowReader
+	Reader io.ReadSeeker
+}
+
+func (s *SlowReadSeeker) Seek(offset int64, whence int) (int64, error) {
+	return s.Reader.Seek(offset, whence)
+}
+
+func NewReadSeeker(ReadSeeker io.ReadSeeker, duration time.Duration) *SlowReadSeeker {
+	return &SlowReadSeeker{
+		SlowReader: NewReader(ReadSeeker, duration),
+		Reader:     ReadSeeker,
+	}
+}
 func NewReader(Reader io.Reader, duration time.Duration) *SlowReader {
 	return &SlowReader{
 		Reader:   Reader,
