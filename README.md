@@ -6,7 +6,7 @@ Speed limited reader or writer fo Go.
 
 ### How to use
 ```
-go get github.com/ma6174/slowrw
+go get -u github.com/ma6174/slowrw
 ```
 
 ### Example:
